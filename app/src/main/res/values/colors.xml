@@ -1,0 +1,13 @@
+<resources>
+    <color name="colorPrimary">@color/colorRec</color>
+    <color name="colorPrimaryDark">@color/colorRecDark</color>
+    <color name="colorAccent">@color/colorRecording</color>
+
+    <!-- toggleBtnRec colors -->
+    <color name="colorRec">#E04030</color>
+    <color name="colorRecDark">#86261C</color>
+    <color name="colorRecording">#2BC939</color>
+    <color name="colorRecordingDark">#187020</color>
+
+    <color name="black_overlay">#80000000</color>
+</resources>

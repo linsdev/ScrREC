@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.lins.scrrec"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            moduleName "player"
+            //abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'
+
+            /** Build fails for x86_64 */
+            // abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+
+            /** Test arm64-v8a */
+            abiFilters 'arm64-v8a'
+        }
+
+        externalNativeBuild {
+            ndkBuild {
+                def gstRoot
+                if (project.hasProperty('GStreamerRoot'))
+                    gstRoot = project.GStreamerRoot
+                else
+                    throw new GradleException('Set "GstreamerRoot" in the file "gradle.properties" to the GStreamer Android directory')
+
+                arguments "GSTREAMER_JAVA_SRC_DIR=src/main/java",
+                          "GSTREAMER_ROOT_ANDROID=$gstRoot"
+            }
+        }
+
+        jackOptions {
+            enabled true
+        }
+    }
+    compileOptions {
+    	sourceCompatibility JavaVersion.VERSION_1_8
+	    targetCompatibility JavaVersion.VERSION_1_8
+	}
+    
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    //    exclude group: 'com.android.support', module: 'support-annotations'
+    //})
+    //testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+}

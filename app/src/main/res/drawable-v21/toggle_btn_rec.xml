@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_checked="false">
+        <ripple xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            tools:targetApi="lollipop"
+            android:color="@color/colorRecDark"> <!-- ripple effect color -->
+            <item>
+                <shape android:shape="oval">
+                    <stroke
+                        android:color="@color/colorRec"
+                        android:width="@dimen/circle_margin" /> <!-- background color -->
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+
+    <item android:state_checked="true">
+        <ripple xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            tools:targetApi="lollipop"
+            android:color="@color/colorRecordingDark"> <!-- ripple effect color -->
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@color/colorRecording" /> <!-- background color -->
+                </shape>
+            </item>
+            <item android:left="@dimen/square_margin" android:top="@dimen/square_margin"
+                  android:right="@dimen/square_margin" android:bottom="@dimen/square_margin">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+
+</selector>

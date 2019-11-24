@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name" translatable="false">ScrREC</string>
+    <string name="player_activity" translatable="false">ScrREC Player</string>
+    <string name="record_title">Record quality level</string>
+    <string name="low">LOW</string>
+    <string name="medium">MEDIUM</string>
+    <string name="high">HIGH</string>
+    <string name="choose_file" translatable="false">...</string>
+    <string name="hint_choose_file">Choose video file location</string>
+    <string name="open_video">OPEN VIDEO</string>
+    <string name="hint_rec_path">Path for save the video</string>
+    <string name="hint_player_path">Path to a video file</string>
+    <string name="hint_rec_btn">Start/Stop screen recording</string>
+    <string name="file_size">File size</string>
+    <string name="current_dir">Current dir</string>
+</resources>
